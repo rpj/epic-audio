@@ -1,0 +1,9 @@
+Epic Audio README
+$Id: README,v 1.1 2004/08/31 19:37:38 rjoseph Exp $
+
+EA is (will be) a multi-threaded socket-based audio player allowing
+control from any language or client that supports sockets (and any
+number of clients) along with the ability to play files from anywhere
+on the filesystem and one day in many different formats.
+
+That's someday.  It's still heavily in development.  Don't use it.

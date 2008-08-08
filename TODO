@@ -1,0 +1,7 @@
+Epic Audio TODO
+$Id: TODO,v 1.2 2004/09/01 20:16:01 rjoseph Exp $
+
+08/31/04:
+* Get MP3 decoder working
+* Try and get the code working in OS X, because it really, really
+  doesn't at this point.

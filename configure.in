@@ -1,0 +1,48 @@
+AC_INIT(ea.c)
+dnl AM_INIT_AUTOMAKE(ea,1.1)
+
+CFLAGS="-g -w -O2 -DDEBUG -D__USE_GNU -D_GNU_SOURCE"
+LIBS=
+
+dnl find and test the C compiler
+AC_PROG_CC
+AC_LANG_C
+
+AC_PROG_MAKE_SET
+
+dnl header checks
+AC_HEADER_STDC
+AC_CHECK_HEADER(pthread.h,,[AC_MSG_ERROR([You need this!])])
+AC_CHECK_HEADER(stdio.h,,[AC_MSG_ERROR([You need this!])])
+AC_CHECK_HEADER(unistd.h,,[AC_MSG_ERROR([You need this!])])
+AC_CHECK_HEADER(time.h,,[AC_MSG_ERROR([You need this!])])
+AC_CHECK_HEADER(fcntl.h,,[AC_MSG_ERROR([You need this!])])
+AC_CHECK_HEADER(errno.h,,[AC_MSG_ERROR([You need this!])])
+AC_CHECK_HEADER(signal.h,,[AC_MSG_ERROR([You need this!])])
+AC_CHECK_HEADER(search.h,,[AC_MSG_ERROR([You need this!])])
+AC_CHECK_HEADER(sys/stat.h,,[AC_MSG_ERROR([You need this!])])
+AC_CHECK_HEADER(dirent.h,,[AC_MSG_ERROR([You need this!])])
+AC_CHECK_HEADER(sys/types.h,,[AC_MSG_ERROR([You need this!])])
+AC_CHECK_HEADER(sys/socket.h,,[AC_MSG_ERROR([You need this!])])
+AC_CHECK_HEADER(netinet/in.h,,[AC_MSG_ERROR([You need this!])])
+AC_CHECK_HEADER(arpa/inet.h,,[AC_MSG_ERROR([You need this!])])
+AC_CHECK_HEADER(netdb.h,,[AC_MSG_ERROR([You need this!])])
+AC_CHECK_HEADER(id3tag.h,,[AC_MSG_ERROR([Go to http://www.underbit.com/products/mad/ to get libid3tag. Check your packaging system for packages too...  Gentoo users execute: emerge libid3tag])])
+AC_CHECK_HEADER(mad.h,,[AC_MSG_ERROR([Go to http://www.underbit.com/products/mad/ to get libmad. Check your packaging system for packages too...  Gentoo users execute: emerge libmad])])
+
+dnl library checks
+AC_CHECK_LIB(id3tag,id3_file_open)
+AC_CHECK_LIB(mad,mad_f_abs)
+AC_CHECK_LIB(z,gzopen)
+AC_CHECK_LIB(pthread,pthread_exit)
+
+dnl function checks
+AC_CHECK_FUNCS(atol atoi strtod usleep tolower time strstr strncpy strlen)
+AC_CHECK_FUNCS(strerror strcmp strchr stdout srand socket snprintf sleep)
+AC_CHECK_FUNCS(signal rindex pthread_create perror printf)
+
+dnl VERSION="0.1"
+dnl AC_SUBST(VERSION)
+
+dnl read Makefile.in, write Makefile
+AC_OUTPUT(Makefile)
